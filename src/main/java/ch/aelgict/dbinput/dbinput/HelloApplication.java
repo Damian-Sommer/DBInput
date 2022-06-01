@@ -21,21 +21,3 @@ public class HelloApplication extends Application {
         launch();
     }
 }
-/*
-public static ArrayList<String> getTablesList(Connection conn)
-            throws SQLException {
-
-        ArrayList<String> listofTable = new ArrayList<String>();
-
-        DatabaseMetaData md = conn.getMetaData();
-
-        ResultSet rs = md.getTables(null, null, "%", null);
-
-        while (rs.next()) {
-            if (rs.getString(4).equalsIgnoreCase("TABLE")) {
-                listofTable.add(rs.getString(3));
-            }
-        }
-        return listofTable;
-    }
- */
