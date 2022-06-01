@@ -1,4 +1,4 @@
-package ch.aeltict.dbinput.logic;
+package ch.aelgict.dbinput.logic;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -6,14 +6,19 @@ import java.util.ArrayList;
 public class DatabaseConnection {
     private Connection conn;
     private Statement st;
-    public void createConnection(String host, int port, String user, String pwd, String dbname) throws ClassNotFoundException {
-        try {Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc.mysql://"+host+":"+String.valueOf(port)+"/"+dbname;
+    private String tableName;
+    public String createConnection(String host, int port, String user, String pwd, String dbname, String tableName) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://"+host+":"+String.valueOf(port)+"/"+dbname;
             this.conn = DriverManager.getConnection(url,user, pwd);
             Statement ps = conn.createStatement();
-        } catch (SQLException e) {
+            this.tableName = tableName;
+            return "Connecion successful";
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return "Connection failed";
     }
 
     /**
@@ -22,7 +27,7 @@ public class DatabaseConnection {
      */
     public boolean isConnectionStable(){
         try {
-            if(!conn.isClosed()){
+            if(!this.conn.isClosed()){
                 return true;
             }
         } catch (SQLException e) {
