@@ -1,8 +1,4 @@
-package ch.aelgict.dbinput.dbinput;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+package ch.aelgict.dbinput.controller;
 
 import ch.aelgict.dbinput.logic.DatabaseConnection;
 import javafx.event.ActionEvent;
@@ -11,10 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class ConnectionController {
 
     private Starter starter;
-
+    private DatabaseConnection databaseConnection;
 
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -54,20 +53,17 @@ public class ConnectionController {
 
     }
 
-    public void initData(Starter starter){
+    public void initData(Starter starter, DatabaseConnection databaseConnection){
+        this.databaseConnection = databaseConnection;
         this.starter = starter;
     }
 
     @FXML
     void handleButtonNext(ActionEvent event) {
-        DatabaseConnection databaseConnection = new DatabaseConnection();
-        System.out.println(databaseConnection.createConnection(txtHost.getText(), Integer.valueOf(txtPort.getText()),txtUsername.getText(), txtPasswort.getText(), txtDBName.getText(), txtTable.getText()));
-        System.out.println(databaseConnection.isConnectionStable());
-        try {
-            starter.showTableView(starter.getStage());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        System.out.println(this.databaseConnection.createConnection(txtHost.getText(), Integer.valueOf(txtPort.getText()),txtUsername.getText(), txtPasswort.getText(), txtDBName.getText()));
+        System.out.println(this.databaseConnection.isConnectionStable());
+        starter.showTableView(starter.getStage(),this.databaseConnection);
     }
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {

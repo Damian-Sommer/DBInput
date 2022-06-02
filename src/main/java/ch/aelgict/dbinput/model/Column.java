@@ -1,4 +1,4 @@
-package ch.aelgict.dbinput.logic;
+package ch.aelgict.dbinput.model;
 
 public class Column{
 

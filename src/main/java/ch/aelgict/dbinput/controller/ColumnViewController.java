@@ -1,5 +1,6 @@
-package ch.aelgict.dbinput.dbinput;
+package ch.aelgict.dbinput.controller;
 
+import ch.aelgict.dbinput.logic.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,8 +11,10 @@ import java.util.ResourceBundle;
 
 public class ColumnViewController {
     private Starter starter;
-    public void initData(Starter starter){
+    private DatabaseConnection databaseConnection;
+    public void initData(Starter starter, DatabaseConnection databaseConnection){
         this.starter = starter;
+        this.databaseConnection = databaseConnection;
     }
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;

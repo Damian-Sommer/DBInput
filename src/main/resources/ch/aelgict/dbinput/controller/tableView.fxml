@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.aelgict.dbinput.controller.TableViewController">
+   <children>
+      <BorderPane prefHeight="333.0" prefWidth="377.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Label text="Label" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="218.0" prefWidth="293.0" BorderPane.alignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <children>
+                  <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" />
+                  <HBox maxWidth="-Infinity" prefHeight="125.0" prefWidth="192.0" />
+                  <HBox maxWidth="-Infinity" minHeight="-Infinity" prefHeight="26.0" prefWidth="188.0">
+                     <children>
+                        <Button fx:id="btnChancel" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonCancel" text="Chancel" />
+                        <Button fx:id="btnNext" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonNext" prefHeight="31.0" prefWidth="70.0" text="Next">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="btnAdd" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonAdd" text="Add">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="40.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

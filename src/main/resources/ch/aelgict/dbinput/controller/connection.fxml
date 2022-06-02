@@ -11,12 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="563.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.aelgict.dbinput.dbinput.ConnectionController">
+<AnchorPane prefHeight="563.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.aelgict.dbinput.controller.ConnectionController">
    <children>
-      <BorderPane layoutX="10.0" layoutY="-78.0" prefHeight="333.0" prefWidth="377.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-78.0">
-         <top>
-            <Label text="Label" BorderPane.alignment="CENTER" />
-         </top>
+      <BorderPane layoutX="10.0" layoutY="-78.0" prefHeight="333.0" prefWidth="377.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="218.0" prefWidth="293.0" BorderPane.alignment="CENTER">
                <cursor>
@@ -48,11 +45,6 @@
                                     <Insets bottom="4.0" top="4.0" />
                                  </VBox.margin>
                               </Label>
-                              <Label text="Table">
-                                 <VBox.margin>
-                                    <Insets bottom="4.0" top="4.0" />
-                                 </VBox.margin>
-                              </Label>
                            </children>
                         </VBox>
                         <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="100.0">
@@ -62,7 +54,6 @@
                               <TextField fx:id="txtPort" />
                               <TextField fx:id="txtUsername" />
                               <PasswordField fx:id="txtPasswort" />
-                              <TextField fx:id="txtTable" />
                            </children>
                         </VBox>
                      </children>
@@ -83,6 +74,9 @@
                </children>
             </VBox>
          </center>
+         <left>
+            <Label text="Label" BorderPane.alignment="CENTER" />
+         </left>
       </BorderPane>
    </children>
 </AnchorPane>
