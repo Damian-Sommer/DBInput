@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 public class TableViewController {
     private Starter starter;
     private DatabaseConnection databaseConnection;
+    private Table selected;
     public void initData(Starter starter, DatabaseConnection databaseConnection){
         this.starter = starter;
         this.databaseConnection = databaseConnection;
@@ -50,19 +51,17 @@ public class TableViewController {
     @FXML
     private TableColumn<Table, Integer> columnColumnCount = new TableColumn<Table, Integer>("AnzahlSpalten");
 
-    private Table selected;
-
     @FXML
     private Button btnChancel;
 
     @FXML
     private Button btnAdd;
 
-
     @FXML
     void handleButtonNext(ActionEvent event) {
         try {
-            starter.showColumnView(starter.getStage(), this.databaseConnection);
+            selected = tableView.getSelectionModel().getSelectedItem();
+            starter.showColumnView(starter.getStage(), this.databaseConnection, selected);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,7 +69,11 @@ public class TableViewController {
 
     @FXML
     void handleButtonCancel(ActionEvent event) {
-
+        try {
+            starter.start(starter.getStage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

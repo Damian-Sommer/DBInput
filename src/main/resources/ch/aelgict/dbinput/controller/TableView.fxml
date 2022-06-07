@@ -22,7 +22,7 @@
                   <HBox maxWidth="-Infinity" minHeight="-Infinity" prefHeight="26.0" prefWidth="188.0">
                      <children>
                         <Button fx:id="btnChancel" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonCancel" text="Chancel" />
-                        <Button fx:id="btnNext" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonNext" prefHeight="31.0" prefWidth="70.0" text="Next">
+                        <Button fx:id="btnNext" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleButtonNext" prefHeight="26.0" prefWidth="82.0" text="Information">
                            <HBox.margin>
                               <Insets left="15.0" />
                            </HBox.margin>

@@ -1,9 +1,7 @@
 package ch.aelgict.dbinput.controller;
 
-import ch.aelgict.dbinput.controller.ColumnViewController;
-import ch.aelgict.dbinput.controller.ConnectionController;
-import ch.aelgict.dbinput.controller.TableViewController;
 import ch.aelgict.dbinput.logic.DatabaseConnection;
+import ch.aelgict.dbinput.model.Table;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -25,7 +23,7 @@ public class Starter extends Application {
     public void start(Stage stage) throws IOException {
         this.stage = stage;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("connection.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Connection.fxml"));
         Parent root = fxmlLoader.load();
         ConnectionController controller = fxmlLoader.getController();
         Scene scene = new Scene(root);
@@ -39,7 +37,7 @@ public class Starter extends Application {
     public void showTableView(Stage stage, DatabaseConnection databaseConnection) {
         try {
             this.stage = stage;
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tableView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TableView.fxml"));
             Parent root = null;
 
             root = fxmlLoader.load();
@@ -57,14 +55,28 @@ public class Starter extends Application {
         }
     }
 
-    public void showColumnView(Stage stage, DatabaseConnection databaseConnection) throws IOException {
+    public void showColumnView(Stage stage, DatabaseConnection databaseConnection, Table selected) throws IOException {
         this.stage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("columnView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TableInformationView.fxml"));
         Parent root = fxmlLoader.load();
-        ColumnViewController controller = fxmlLoader.getController();
-        controller.initData(this, databaseConnection);
+        TableInformationViewController controller = fxmlLoader.getController();
+        controller.initData(this, databaseConnection, selected);
         Scene scene = new Scene(root);
-        this.stage.setTitle("Columns of Table");
+        this.stage.setTitle("Table Information - "+selected.getTableName());
+        this.stage.setScene(scene);
+        this.stage.setMinHeight(600);
+        this.stage.setMinWidth(500);
+        this.stage.show();
+    }
+
+    public void showRowAddView(Stage stage, DatabaseConnection databaseConnection, Table selected) throws IOException {
+        this.stage = stage;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TableInformationView.fxml"));
+        Parent root = fxmlLoader.load();
+        AddRowViewController controller = fxmlLoader.getController();
+        controller.initData(this, databaseConnection, selected);
+        Scene scene = new Scene(root);
+        this.stage.setTitle("Add Row");
         this.stage.setScene(scene);
         this.stage.setMinHeight(600);
         this.stage.setMinWidth(500);

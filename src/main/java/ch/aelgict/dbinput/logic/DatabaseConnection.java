@@ -96,20 +96,23 @@ public class DatabaseConnection {
         return numberOfCol;
     }
 
-    public ArrayList<Column> getColumnOfTable(String table){
+    public ArrayList<Column> getColumnListOfTable(Table table){
         ArrayList<Column> listOfColumns = new ArrayList<>();
         try {
             Statement statement = null;
 
             statement = conn.createStatement();
 
-            ResultSet rs = statement.executeQuery("Select * From "+table);
+            ResultSet rs = statement.executeQuery("Select * From "+table.getTableName());
 
             ResultSetMetaData md = rs.getMetaData();
-            int columnCount = md.getColumnCount();
 
-            for(int i = 0; i < columnCount; i++){
-                listOfColumns.add(new Column(md.getColumnName(i),i,table));
+            int columnCount = md.getColumnCount();
+            System.out.println(columnCount);
+            for(int i = 1; i <= columnCount; i++){
+                System.out.println(md.getColumnName(i));
+                listOfColumns.add(new Column(md.getColumnName(i),i, table.getTableName(), md.getColumnTypeName(i)));
+                System.out.println(md.getColumnTypeName(i));
             }
         } catch (SQLException e) {
             e.printStackTrace();

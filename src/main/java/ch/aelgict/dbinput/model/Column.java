@@ -8,7 +8,8 @@ public class Column{
     private String columnDataType;
 
 
-    public Column(String columnName, int columnIndex, String tableName){
+    public Column(String columnName, int columnIndex, String tableName, String columnDataType){
+        this.columnDataType = columnDataType;
         this.columnName = columnName;
         this.columnIndex = columnIndex;
         this.tableName = tableName;
