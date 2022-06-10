@@ -2,6 +2,7 @@ module ch.aelgict.dbinput {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires java.sql.rowset;
 
 
     opens ch.aelgict.dbinput.controller to javafx.fxml;

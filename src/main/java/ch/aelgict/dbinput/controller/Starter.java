@@ -8,7 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
 
 public class Starter extends Application {
 
@@ -71,7 +75,7 @@ public class Starter extends Application {
 
     public void showRowAddView(Stage stage, DatabaseConnection databaseConnection, Table selected) throws IOException {
         this.stage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TableInformationView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AddRowView.fxml"));
         Parent root = fxmlLoader.load();
         AddRowViewController controller = fxmlLoader.getController();
         controller.initData(this, databaseConnection, selected);

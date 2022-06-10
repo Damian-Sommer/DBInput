@@ -78,7 +78,12 @@ public class TableViewController {
 
     @FXML
     void handleButtonAdd(ActionEvent event) {
-
+        try {
+            selected = tableView.getSelectionModel().getSelectedItem();
+            starter.showRowAddView(starter.getStage(), this.databaseConnection, this.selected);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
